@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <main class="container">
+
+      <h1 class="mt-5">Новости</h1>
+      {{#if data.news.length}}
+          {{#each data.news}}
+            <div class="mt-4 ml-2">
+              <div>
+                <a href="{{url}}">{{title}}</a> 
+                <small class="ml-1 text-secondary">Опубликовано: {{dateToString ptime}}</small>
+              </div>
+              {{description}}
+            </div>
+          {{/each}}
+      {{else}}
+        <p>Не дождались новостей</p>
+      {{/if}}
+
+      <h4 class="mt-5">Похожие запросы</h4>
+      {{#if data.phrases.length}}
+        <ul>
+          {{#each data.phrases}}
+            <li>{{title}}</li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>Не дождались фраз</p>
+      {{/if}}
+
+    </main>
+  </body>
+</html>
